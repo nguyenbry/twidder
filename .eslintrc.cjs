@@ -1,32 +1,34 @@
 // eslint-disable-next-line
-const path = require('path');
+const path = require("path");
 
 /** @type {import("eslint").Linter.Config} */
 const config = {
   overrides: [
     {
-      extends: ['plugin:@typescript-eslint/recommended-requiring-type-checking'],
-      files: ['*.ts', '*.tsx', '*.js', '*.jsx'],
+      extends: [
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+      ],
+      files: ["*.ts", "*.tsx", "*.js", "*.jsx"],
       parserOptions: {
-        project: path.join(__dirname, 'tsconfig.json'),
+        project: path.join(__dirname, "tsconfig.json"),
       },
     },
   ],
-  parser: '@typescript-eslint/parser',
+  parser: "@typescript-eslint/parser",
   parserOptions: {
-    project: path.join(__dirname, 'tsconfig.json'),
+    project: path.join(__dirname, "tsconfig.json"),
   },
-  plugins: ['@typescript-eslint'],
-  extends: ['next/core-web-vitals', 'plugin:@typescript-eslint/recommended'],
+  plugins: ["@typescript-eslint"],
+  extends: ["next/core-web-vitals", "plugin:@typescript-eslint/recommended"],
   rules: {
-    '@typescript-eslint/consistent-type-imports': [
-      'error',
+    "@typescript-eslint/consistent-type-imports": [
+      "error",
       {
-        prefer: 'type-imports',
-        fixStyle: 'inline-type-imports',
+        prefer: "type-imports",
+        fixStyle: "inline-type-imports",
       },
     ],
-    '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+    "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
   },
 };
 

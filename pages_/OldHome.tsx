@@ -1,10 +1,9 @@
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
 import Link from "next/link";
 import LogoutButton from "../components/LogoutButton";
 import SupabaseLogo from "../components/SupabaseLogo";
 import NextJsLogo from "../components/NextJsLogo";
-import { redirectIfNotAuthed } from "@/hooks/redirectIfNotAuthed";
-import { LoginDialog } from "@/components/login-dialog";
-import { ThemeToggle } from "@/components/theme-toggle";
 
 const resources = [
   {
@@ -40,7 +39,11 @@ const examples = [
 ];
 
 export default async function Index() {
-  const user = await redirectIfNotAuthed();
+  const supabase = createServerComponentClient({ cookies });
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
   return (
     <div className="flex w-full flex-col items-center">
@@ -48,11 +51,19 @@ export default async function Index() {
         <div className="flex w-full max-w-4xl items-center justify-between p-3 text-sm text-foreground">
           <div />
           <div>
-            <div className="flex items-center gap-4">
-              Hey, {user.email}
-              <LogoutButton />
-              <ThemeToggle />
-            </div>
+            {user ? (
+              <div className="flex items-center gap-4">
+                Hey, {user.email}
+                <LogoutButton />
+              </div>
+            ) : (
+              <Link
+                href="/login"
+                className="bg-btn-background hover:bg-btn-background-hover rounded-md px-4 py-2 no-underline"
+              >
+                Login
+              </Link>
+            )}
           </div>
         </div>
       </nav>
@@ -82,7 +93,6 @@ export default async function Index() {
           <h2 className="text-center text-lg font-bold">
             Everything you need to get started
           </h2>
-          <LoginDialog />
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
             {resources.map(({ title, subtitle, url, icon }) => (
               <a

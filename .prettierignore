@@ -1,0 +1,17 @@
+/node_modules
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+.env*.local
+
+/.pnp
+.pnp.js
+
+pnpm-lock.yaml
+tsconfig.tsbuildinfo
+
+README.md
