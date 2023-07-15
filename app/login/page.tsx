@@ -1,38 +1,38 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
-import { useRouter } from 'next/navigation'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
-import Link from 'next/link'
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import Link from 'next/link';
 
 export default function Login() {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [view, setView] = useState('sign-in')
-  const router = useRouter()
-  const supabase = createClientComponentClient()
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [view, setView] = useState('sign-in');
+  const router = useRouter();
+  const supabase = createClientComponentClient();
 
   const handleSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
+    e.preventDefault();
     await supabase.auth.signUp({
       email,
       password,
       options: {
         emailRedirectTo: `${location.origin}/auth/callback`,
       },
-    })
-    setView('check-email')
-  }
+    });
+    setView('check-email');
+  };
 
   const handleSignIn = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
+    e.preventDefault();
     await supabase.auth.signInWithPassword({
       email,
       password,
-    })
-    router.push('/')
-    router.refresh()
-  }
+    });
+    router.push('/');
+    router.refresh();
+  };
 
   return (
     <div className="flex-1 flex flex-col w-full px-8 sm:max-w-md justify-center gap-2">
@@ -58,13 +58,15 @@ export default function Login() {
       </Link>
       {view === 'check-email' ? (
         <p className="text-center text-foreground">
-          Check <span className="font-bold">{email}</span> to continue signing
-          up
+          Check <span className="font-bold">{email}</span> to continue signing up
         </p>
       ) : (
         <form
           className="flex-1 flex flex-col w-full justify-center gap-2 text-foreground"
-          onSubmit={view === 'sign-in' ? handleSignIn : handleSignUp}
+          onSubmit={(e) => {
+            const task = view === 'sign-in' ? handleSignIn : handleSignUp;
+            void task(e);
+          }}
         >
           <label className="text-md" htmlFor="email">
             Email
@@ -93,11 +95,8 @@ export default function Login() {
                 Sign In
               </button>
               <p className="text-sm text-center">
-                Don't have an account?
-                <button
-                  className="ml-1 underline"
-                  onClick={() => setView('sign-up')}
-                >
+                Don&apos;t have an account?
+                <button className="ml-1 underline" onClick={() => setView('sign-up')}>
                   Sign Up Now
                 </button>
               </p>
@@ -110,10 +109,7 @@ export default function Login() {
               </button>
               <p className="text-sm text-center">
                 Already have an account?
-                <button
-                  className="ml-1 underline"
-                  onClick={() => setView('sign-in')}
-                >
+                <button className="ml-1 underline" onClick={() => setView('sign-in')}>
                   Sign In Now
                 </button>
               </p>
@@ -122,5 +118,5 @@ export default function Login() {
         </form>
       )}
     </div>
-  )
+  );
 }

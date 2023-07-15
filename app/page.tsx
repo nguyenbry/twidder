@@ -1,9 +1,9 @@
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
-import { cookies } from 'next/headers'
-import Link from 'next/link'
-import LogoutButton from '../components/LogoutButton'
-import SupabaseLogo from '../components/SupabaseLogo'
-import NextJsLogo from '../components/NextJsLogo'
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
+import { cookies } from 'next/headers';
+import Link from 'next/link';
+import LogoutButton from '../components/LogoutButton';
+import SupabaseLogo from '../components/SupabaseLogo';
+import NextJsLogo from '../components/NextJsLogo';
 
 const resources = [
   {
@@ -27,7 +27,7 @@ const resources = [
     url: 'https://supabase.com/docs/guides/auth/auth-helpers/nextjs',
     icon: 'M12 6.25278V19.2528M12 6.25278C10.8321 5.47686 9.24649 5 7.5 5C5.75351 5 4.16789 5.47686 3 6.25278V19.2528C4.16789 18.4769 5.75351 18 7.5 18C9.24649 18 10.8321 18.4769 12 19.2528M12 6.25278C13.1679 5.47686 14.7535 5 16.5 5C18.2465 5 19.8321 5.47686 21 6.25278V19.2528C19.8321 18.4769 18.2465 18 16.5 18C14.7535 18 13.1679 18.4769 12 19.2528',
   },
-]
+];
 
 const examples = [
   { type: 'Client Components', src: 'app/_examples/client-component/page.tsx' },
@@ -36,14 +36,14 @@ const examples = [
   { type: 'Route Handlers', src: 'app/_examples/route-handler.ts' },
   { type: 'Middleware', src: 'app/middleware.ts' },
   { type: 'Protected Routes', src: 'app/_examples/protected/page.tsx' },
-]
+];
 
 export default async function Index() {
-  const supabase = createServerComponentClient({ cookies })
+  const supabase = createServerComponentClient({ cookies });
 
   const {
     data: { user },
-  } = await supabase.auth.getUser()
+  } = await supabase.auth.getUser();
 
   return (
     <div className="w-full flex flex-col items-center">
@@ -53,7 +53,7 @@ export default async function Index() {
           <div>
             {user ? (
               <div className="flex items-center gap-4">
-                Hey, {user.email}!
+                Hey, {user.email}
                 <LogoutButton />
               </div>
             ) : (
@@ -79,8 +79,8 @@ export default async function Index() {
           </div>
           <h1 className="sr-only">Supabase and Next.js Starter Template</h1>
           <p className="text-3xl lg:text-4xl !leading-tight mx-auto max-w-xl text-center my-12">
-            The fastest way to start building apps with{' '}
-            <strong>Supabase</strong> and <strong>Next.js</strong>
+            The fastest way to start building apps with <strong>Supabase</strong> and{' '}
+            <strong>Next.js</strong>
           </p>
           <div className="bg-foreground py-3 px-6 rounded-lg font-mono text-sm text-background">
             Get started by editing <strong>app/page.tsx</strong>
@@ -102,9 +102,7 @@ export default async function Index() {
                 target="_blank"
                 rel="noreferrer"
               >
-                <h3 className="font-bold mb-2  min-h-[40px] lg:min-h-[60px]">
-                  {title}
-                </h3>
+                <h3 className="font-bold mb-2  min-h-[40px] lg:min-h-[60px]">{title}</h3>
                 <div className="flex flex-col grow gap-4 justify-between">
                   <p className="text-sm opacity-70">{subtitle}</p>
                   <div className="flex justify-between items-center">
@@ -150,8 +148,8 @@ export default async function Index() {
           <div className="grid gap-2 justify-center mx-auto text-center">
             <h2 className="text-lg font-bold text-center">Examples</h2>
             <p className="text-sm">
-              Look in the <code>_examples</code> folder to see how to create a
-              Supabase client in all the different contexts.
+              Look in the <code>_examples</code> folder to see how to create a Supabase
+              client in all the different contexts.
             </p>
           </div>
           <div className="w-full justify-center border rounded-lg overflow-hidden">
@@ -174,16 +172,12 @@ export default async function Index() {
         <div className="flex justify-center text-center text-xs">
           <p>
             Powered by{' '}
-            <Link
-              href="https://supabase.com/"
-              target="_blank"
-              className="font-bold"
-            >
+            <Link href="https://supabase.com/" target="_blank" className="font-bold">
               Supabase
             </Link>
           </p>
         </div>
       </div>
     </div>
-  )
+  );
 }
