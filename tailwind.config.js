@@ -18,7 +18,11 @@ module.exports = {
     },
     extend: {
       colors: {
-        border: "hsl(var(--border))",
+        "accent-text": "rgb(var(--accent-text))",
+        tblue: "rgb(var(--twitter-blue))",
+        closehover: "rgba(var(--close-hover), <alpha-value>)",
+        birdgrey: "rgb(var(--bird-grey))",
+        border: "rgb(var(--border))", // twitter's border colors
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",

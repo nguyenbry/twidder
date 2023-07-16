@@ -16,7 +16,8 @@
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
 
-    --border: 214.3 31.8% 91.4%;
+    /* --border: 214.3 31.8% 91.4%; */
+    --border: 207 217 222;
     --input: 214.3 31.8% 91.4%;
 
     --primary: 222.2 47.4% 11.2%;
@@ -34,9 +35,19 @@
     --ring: 215 20.2% 65.1%;
 
     --radius: 0.5rem;
+
+    --bird-grey: 214 217 219;
+
+    --close-hover: 223, 243, 244; /* meant for rgba */
+
+    --twitter-blue: 29 155 240;
+
+    --accent-text: 83 100 113;
   }
 
   .dark {
+    --accent-text: 113 118 123;
+
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
 
@@ -49,7 +60,8 @@
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
+    /* --border: 217.2 32.6% 17.5%; */
+    --border: 51 54 57;
     --input: 217.2 32.6% 17.5%;
 
     --primary: 210 40% 98%;

@@ -1,7 +1,5 @@
 import Link from "next/link";
 import LogoutButton from "../components/LogoutButton";
-import SupabaseLogo from "../components/SupabaseLogo";
-import NextJsLogo from "../components/NextJsLogo";
 import { redirectIfNotAuthed } from "@/hooks/redirectIfNotAuthed";
 import { LoginDialog } from "@/components/login-dialog";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -59,13 +57,6 @@ export default async function Index() {
 
       <div className="flex max-w-4xl flex-col gap-14 px-3 py-16 text-foreground opacity-0 animate-in lg:py-24">
         <div className="mb-4 flex flex-col items-center lg:mb-12">
-          <div className="flex items-center justify-center gap-8">
-            <Link href="https://supabase.com/" target="_blank">
-              <SupabaseLogo />
-            </Link>
-            <span className="h-6 rotate-45 border-l" />
-            <NextJsLogo />
-          </div>
           <h1 className="sr-only">Supabase and Next.js Starter Template</h1>
           <p className="mx-auto my-12 max-w-xl text-center text-3xl !leading-tight lg:text-4xl">
             The fastest way to start building apps with{" "}
