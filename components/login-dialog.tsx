@@ -3,16 +3,9 @@
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
-  // DialogContent,
-  // DialogDescription,
-  // DialogFooter,
-  // DialogHeader,
-  // DialogTitle,
   DialogTrigger,
   TwitterDialogContent,
 } from "@/components/ui/dialog";
-// import { Input } from "@/components/ui/input";
-// import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 import { useRef, useState } from "react";
 import { FaTwitter } from "react-icons/fa";
@@ -33,37 +26,13 @@ export function LoginDialog() {
       <DialogTrigger asChild>
         <Button variant="outline">Edit Profile</Button>
       </DialogTrigger>
-      <TwitterDialogContent className="w-[40vw]">
-        {/* <DialogHeader>
-          <DialogTitle>Edit profile</DialogTitle>
-          <DialogDescription>
-            Make changes to your profile here. Click save when you&apos;re done.
-          </DialogDescription>
-        </DialogHeader>
-        <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
-              Name
-            </Label>
-            <Input id="name" value="Pedro Duarte" className="col-span-3" />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="username" className="text-right">
-              Username
-            </Label>
-            <Input id="username" value="@peduarte" className="col-span-3" />
-          </div>
-        </div>
-        <DialogFooter>
-          <Button type="submit">Save changes</Button>
-        </DialogFooter> */}
+      <TwitterDialogContent className="w-[40vw] pb-24">
         <div className="my-3 flex h-12 justify-center">
           <FaTwitter className="h-8 w-8 text-birdgrey" />
         </div>
-        <div className="flex flex-col items-center px-40">
+        <div className="flex justify-center px-40">
           <div className="w-full">
-            <span className="text-4xl font-bold">Sign in to Twitter</span>
-
+            <span className="text-4xl font-semibold">Sign in to Twitter</span>
             {/* had to do this wrapped div because the border going from 1px to 2px was making things shift/resize  */}
             <div
               className="relative my-8 h-[60px] cursor-text rounded-md border focus-within:border-transparent"
@@ -89,6 +58,18 @@ export function LoginDialog() {
               >
                 Email or username
               </span>
+            </div>
+            <button className="my-3 w-full rounded-full bg-login-next py-2 font-bold text-black transition hover:bg-login-next-hover">
+              Next
+            </button>
+            <button className="my-3 w-full rounded-full border border-accent-text py-2 font-bold transition hover:bg-login-next-hover/10">
+              Forgot Password?
+            </button>
+            <div className="mt-10">
+              <span className="text-accent-text">
+                Don&apos;t have an account?
+              </span>{" "}
+              <span className="text-tblue">Sign up</span>
             </div>
           </div>
         </div>

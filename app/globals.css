@@ -43,9 +43,14 @@
     --twitter-blue: 29 155 240;
 
     --accent-text: 83 100 113;
+
+    --login-next: 239 243 244; /* rgb */
+    --login-next-hover: 215 219 220;
   }
 
   .dark {
+    /* --login-next: 239 243 244;  */
+
     --accent-text: 113 118 123;
 
     --background: 222.2 84% 4.9%;
@@ -86,6 +91,7 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-size: 15px;
   }
 }
 

@@ -18,6 +18,8 @@ module.exports = {
     },
     extend: {
       colors: {
+        "login-next": "rgb(var(--login-next))",
+        "login-next-hover": "rgb(var(--login-next-hover))",
         "accent-text": "rgb(var(--accent-text))",
         tblue: "rgb(var(--twitter-blue))",
         closehover: "rgba(var(--close-hover), <alpha-value>)",
